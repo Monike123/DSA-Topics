@@ -1,0 +1,94 @@
+class stack:
+    def __init__(self):
+        self.item = []
+        
+    def push(self,data):
+        self.item.append(data)
+        return f"{data} added succeefully"
+        
+    def pop(self):
+        if self.empty() :
+            return "Stack is empty"
+        else:
+            print(f"{self.item.pop()} removed from the stack")
+    
+    def peek(self):
+        if self.empty() :
+            return "Stack is empty"
+        else:
+            print(f" Top item is : {self.item[-1]}")
+    
+    def display(self):
+        if self.empty():
+            print("Stack is empty")
+        else:
+            for i in self.item:
+                print(i, end="->")
+            print("None")
+            
+    def empty(self):
+        return len(self.item)==0
+        
+
+a = stack()
+
+a.push("A")
+a.push("B")
+a.push("C")
+a.push("D")
+a.push("E")
+
+a.display()
+
+a.peek()
+a.pop()
+a.peek()
+a.pop()
+
+a.display()
+
+
+######################################################################################################################
+
+class queue:
+    def __init__(self):
+        self.item = []
+        
+    def enqueue(self,data):
+        self.item.append(data)
+    
+    def dequeue(self):
+        if self.empty():
+            print("Queue is empty!")
+        else:
+            print(f"{self.item.pop(0)} dequeued from the stack")
+    
+    def peek(self):
+        if self.empty():
+            print("Queue is empty!")
+        else:
+            print(f"peek item is : {self.item[0]}")
+    
+    def display(self):
+        if self.empty():
+            print("Queue is empty")
+        else:
+            for i in self.item:
+                print(i, end="->")
+            print("None")
+        
+    def empty(self):
+        return len(self.item)==0
+        
+if __name__ == "__main__":
+    a = queue()
+    a.enqueue("A")
+    a.enqueue("B")
+    a.enqueue("C")
+    a.enqueue("D")
+    a.enqueue("E")
+    a.display()
+    a.peek()
+    a.dequeue()
+    a.display()
+

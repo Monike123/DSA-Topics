@@ -1,0 +1,125 @@
+1) Write Python Program to demonstrate the use of various Python Data Types and  
+
+Structures 
+
+ 
+
+Program Screenshot  
+
+ 
+
+def demonstrate_data_types_and_structures(): 
+
+  num_int = 10 
+
+  num_float = 3.14 
+
+  num_complex = 2 + 3j 
+
+  print(f"Integer: {num_int}") 
+
+  print(f"Float: {num_float}") 
+
+  print(f"Complex: {num_complex}") 
+
+  print() 
+
+ # Strings 
+
+  str1 = "Hello, World!" 
+
+  str2 = 'Python Programming' 
+
+  multiline_str = """This is a 
+
+ multiline string.""" 
+
+  print(f"String 1: {str1}") 
+
+  print(f"String 2: {str2}") 
+
+  print(f"Multiline String:\n{multiline_str}") # Print the multiline stringwith proper indentation 
+
+  print() 
+
+ # Lists 
+
+  list1 = [1, 2, 3, 4, 5] 
+
+  list2 = ['a', 'b', 'c'] 
+
+  list_nested = [[1, 2], [3, 4], [5, 6]] 
+
+  print(f"List 1: {list1}") 
+
+  print(f"List 2: {list2}") 
+
+  print(f"Nested List: {list_nested}") 
+
+  print() 
+
+ # Tuples 
+
+  tuple1 = (1, 2, 3) 
+
+ 
+
+  tuple2 = ('x', 'y', 'z') 
+
+  print(f"Tuple 1: {tuple1}") 
+
+  print(f"Tuple 2: {tuple2}") 
+
+  print() 
+
+ # Dictionaries 
+
+  dict1 = {'name': 'Alice', 'age': 30, 'city': 'New York'} 
+
+  dict2 = {'fruit': 'apple', 'color': 'red'} 
+
+  print(f"Dictionary 1: {dict1}") 
+
+  print(f"Dictionary 2: {dict2}") 
+
+  print() 
+
+ # Sets 
+
+  set1 = {1, 2, 3, 4, 5} 
+
+  set2 = {'a', 'b', 'c', 'd'} 
+
+  print(f"Set 1: {set1}") 
+
+  print(f"Set 2: {set2}") 
+
+  print() 
+
+ # Boolean 
+
+  bool_true = True 
+
+  bool_false = False 
+
+  print(f"Boolean True: {bool_true}") 
+
+  print(f"Boolean False: {bool_false}") 
+
+  print() 
+
+ # NoneType 
+
+  none_var = None 
+
+  print(f"NoneType variable: {none_var}") 
+
+  print() 
+
+ 
+
+if __name__ == "__main__": 
+
+  demonstrate_data_types_and_structures() 
+
+ 
