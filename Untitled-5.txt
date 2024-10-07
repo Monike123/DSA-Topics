@@ -1,0 +1,82 @@
+a = [56,23,1,2,8,9,5,6,11,2,5,33,45,85,88]
+
+######################################################################
+
+#TimeComplexity = 0(n^2)
+
+def Bs(x:list)->list:
+    n = len(x)
+    
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if x[j] > x[j+1]:
+                x[j],x[j+1] = x[j+1],x[j]
+                
+    print("sorted list is \n",x)
+    
+Bs(a)
+
+######################################################################
+
+#TimeComplexity = 0(n^2)
+def SS(x:list)->list:
+    n = len(x)
+    
+    for i in range (n-1):
+        mi = i
+        for j in range(i+1,n):
+            if x[j] < x[mi]:
+                mi = j
+        mv = x.pop(i)
+        x.insert(i,mv)
+    
+    print("sorted list is \n",x)
+    
+    
+SS(a)
+
+######################################################################
+
+#TimeComplexity = 0(n)
+def Is(x:list)->list:
+    n = len(x)
+    
+    for i in range(1,n):
+        ii = i
+        cv = x.pop(i)
+        for j in range(i-1,-1,-1):
+            if x[j] > cv:
+                ii = j
+        x.insert(ii,cv)
+        
+    print("sorted list is \n",x)
+    
+    
+Is(a)
+
+######################################################################
+
+#TimeComplexity = 0(nlogn)
+def Qs(x:list)->list:
+    if len(x) <=1:
+        return x
+    else:
+        p = x[len(x)//2]
+        l = [i for i in x if i < p]
+        m = [i for i in x if i == p]
+        r = [i for i in x if i > p]
+        
+        return Qs(l)+m+Qs(r)
+        
+
+s = Qs(a)
+print("sorted list is \n",s)
+
+
+
+
+
+
+
+
+
