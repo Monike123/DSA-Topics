@@ -1,0 +1,157 @@
+Deapth first traversal
+
+class Node:
+    def __init__(self,key):
+        self.right = None
+        self.left = None
+        self.val = key
+    
+def preorder(root):
+    if root:
+        print(root.val,end=" ")
+        preorder(root.left)
+        preorder(root.right)
+            
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val,end=" ")
+        inorder(root.right)
+    
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.val,end=" ")
+            
+if __name__ == "__main__":
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
+    print("Preorder traversal:")
+    preorder(root)
+    print("\nInorder traversal:")
+    inorder(root)
+    print("\nPostorder traversal:")
+    postorder(root)
+
+
+
+#########################################################
+breath first
+
+class Node:
+    def __init__(self,key):
+        self.right = None
+        self.left = None
+        self.val = key
+        
+def bf(root):
+    if not root:
+        return
+    q = []
+    q.append(root)
+    
+    while q:
+        n = q.pop(0)
+        print(n.val,end=" ")
+        
+        if n.left:
+            q.append(n.left)
+        if n.right:
+            q.append(n.right)
+            
+
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.left = Node(6)
+root.right.right = Node(7)
+
+print("bf is")
+bf(root)
+
+#########################################################
+
+BST
+
+class Node:
+    def __init__(self,key):
+        self.right = None
+        self.left = None
+        self.val = key
+        
+class BST:
+    
+    def __init__(self):
+        self.root = None
+        
+    def insert(self,key):
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            self._insert(self.root,key)
+            
+    def _insert(self,root,key):
+        if key < root.val:
+            if root.left is None:
+                root.left = Node(key)
+            else:
+                self._insert(root.left,key)
+        else:
+            if root.right is None:
+                root.right = Node(key)
+            else:
+                self._insert(root.right,key)
+                
+    def find_min(self):
+        if self.root is None:
+            return None
+        return self._find_min(self.root).val
+            
+    def _find_min(self,root):
+        cur = root
+        while cur.left is not None:
+            cur = cur.left
+        return cur
+            
+    def find_max(self):
+        if self.root is None:
+            return None
+        return self._find_max(self.root).val
+            
+    def _find_max(self,root):
+        cur = root
+        while cur.right is not None:
+            cur = cur.right
+        return cur
+    
+    def inorder(self):
+        ele = []
+        self._inord_(self.root,ele)
+        return ele
+        
+    def _inord_(self,root,ele):
+        if root:
+            self._inord_(root.left,ele)
+            print(root.val,end=" ")
+            self._inord_(root.right,ele)
+    
+bst = BST()
+bst.insert(5)
+bst.insert(3)
+bst.insert(7)
+bst.insert(2)
+bst.insert(4)
+bst.insert(6)
+bst.insert(8)
+
+print("In-order traversal:", bst.inorder())
+print("Minimum value:", bst.find_min())
+print("Maximum value:", bst.find_max())
