@@ -1,0 +1,5 @@
+"""
+Randomized selection 
+Randomized selection is a varition of Quickselection algorithm where the pivot element is selected randomly 
+which helps us to improve average-case performance
+"""
