@@ -72,8 +72,31 @@ def Qs(x:list)->list:
 s = Qs(a)
 print("sorted list is \n",s)
 
+######################################################################
 
+def ms(x:list)->list:
+    if len(x) <= 1:
+        return x
 
+    m = len(x)//2
+    l = ms(x[:m])
+    r = ms(x[m:])
+
+    res = []
+    i = j = 0
+    while i < len(l) and j < len(r):
+        if l[i] < r[j]:
+            res.append(l[i])
+            i += 1
+        else:
+            res.append(r[j])
+            j += 1
+    res.extend(l[i:])
+    res.extend(r[j:])
+    return res
+
+s = ms(a)
+print("sorted list is \n",s)
 
 
 
