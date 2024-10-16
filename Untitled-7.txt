@@ -3,3 +3,74 @@ Randomized selection
 Randomized selection is a varition of Quickselection algorithm where the pivot element is selected randomly 
 which helps us to improve average-case performance
 """
+# for k- smallest index
+import random
+
+# Simplified function for randomized selection
+def randomized_select(arr, low, high, k):
+    if low == high:
+        return arr[low]  # Base case: if the array has one element
+    
+    # Random pivot selection
+    pivot_index = random.randint(low, high)
+    arr[high], arr[pivot_index] = arr[pivot_index], arr[high]  # Swap pivot with last element
+    pivot = arr[high]  # Set pivot as the last element
+    
+    # Partitioning around the pivot
+    i = low
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            arr[i], arr[j] = arr[j], arr[i]  # Swap smaller elements to the front
+            i += 1
+    arr[i], arr[high] = arr[high], arr[i]  # Place pivot in correct position
+    
+    # Recursive logic: check if pivot is the k-th element
+    if i == k:
+        return arr[i]  # If pivot is at the k-th position, return it
+    elif i > k:
+        return randomized_select(arr, low, i - 1, k)  # Recur on the left partition
+    else:
+        return randomized_select(arr, i + 1, high, k)  # Recur on the right partition
+
+# Example usage
+arr = [12, 3, 5, 7, 4, 19, 26]
+k = 4  # Looking for the 4th smallest element (1-indexed)
+result = randomized_select(arr, 0, len(arr) - 1, k - 1)  # k-1 for 0-indexed
+print(f"The {k}-th smallest element is {result}")  # Output: The 4th smallest element is 7
+
+
+#for K-largest index 
+import random
+
+# Simplified function for randomized selection
+def randomized_select(arr, low, high, k):
+    if low == high:
+        return arr[low]  # Base case: if there's only one element
+    
+    # Random pivot selection
+    pivot_index = random.randint(low, high)
+    arr[high], arr[pivot_index] = arr[pivot_index], arr[high]  # Swap pivot with last element
+    pivot = arr[high]  # Set pivot as the last element
+    
+    # Partitioning around the pivot
+    i = low
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            arr[i], arr[j] = arr[j], arr[i]  # Swap smaller elements to the front
+            i += 1
+    arr[i], arr[high] = arr[high], arr[i]  # Place pivot in correct position
+    
+    # Recursive logic: check if pivot is the k-th element
+    if i == k:
+        return arr[i]  # If pivot is at the k-th position, return it
+    elif i > k:
+        return randomized_select(arr, low, i - 1, k)  # Recur on the left partition
+    else:
+        return randomized_select(arr, i + 1, high, k)  # Recur on the right partition
+
+# Example usage to find the k-th largest element
+arr = [12, 3, 5, 7, 4, 19, 26]
+k = 2  # Looking for the 2nd largest element (1-indexed)
+n = len(arr)  # Length of the array
+result = randomized_select(arr, 0, n - 1, n - k)  # n - k gives the index for the k-th largest
+print(f"The {k}-th largest element is {result}")  # Output: The 2nd largest element is 19
